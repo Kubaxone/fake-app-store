@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>App Store</title>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <h1>Today</h1>
+  <div class="search-bar">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    Search
+  </div>
+</div>
+
+<div class="scroll-content">
+
+  <!-- FEATURED -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Featured</span>
+    </div>
+
+    <div class="today-card" onclick="showInstall('Procreate Dreams')">
+      <i class="fa-solid fa-wand-magic-sparkles big-icon"></i>
+      <span class="label">App of the Day</span>
+      <h2>Procreate Dreams</h2>
+      <p>Create stunning animations with ease.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TOP APPS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Top Free Apps</span>
+    </div>
+
+    <div class="apps-scroll">
+
+      <div class="app-row">
+
+        <div class="app-item">
+          <div class="app-icon-sm blue"><i class="fa-brands fa-roblox"></i></div>
+          <div class="app-info">
+            <div class="name">Roblox</div>
+            <div class="desc">Games</div>
+          </div>
+          <button class="get-btn" onclick="showInstall('Roblox')">GET</button>
+        </div>
+
+        <div class="app-item">
+          <div class="app-icon-sm green"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="app-info">
+            <div class="name">WhatsApp</div>
+            <div class="desc">Social</div>
+          </div>
+          <button class="get-btn" onclick="showInstall('WhatsApp')">GET</button>
+        </div>
+
+        <div class="app-item">
+          <div class="app-icon-sm yellow"><i class="fa-brands fa-spotify"></i></div>
+          <div class="app-info">
+            <div class="name">Spotify</div>
+            <div class="desc">Music</div>
+          </div>
+          <button class="get-btn open" onclick="showInstall('Spotify')">OPEN</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- GAMES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Games We Love</span>
+    </div>
+
+    <div class="cards-row">
+
+      <div class="mini-card" onclick="showInstall('Subway Surfers')">
+        <div class="thumb pink"><i class="fa-solid fa-person-running"></i></div>
+        <div class="info">
+          <div class="name">Subway Surfers</div>
+        </div>
+      </div>
+
+      <div class="mini-card" onclick="showInstall('Among Us')">
+        <div class="thumb blue"><i class="fa-solid fa-user-astronaut"></i></div>
+        <div class="info">
+          <div class="name">Among Us</div>
+        </div>
+      </div>
+
+      <div class="mini-card" onclick="showInstall('Minecraft')">
+        <div class="thumb green"><i class="fa-solid fa-cube"></i></div>
+        <div class="info">
+          <div class="name">Minecraft</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <div class="tab-item active"><i class="fa-solid fa-sun"></i><span>Today</span></div>
+  <div class="tab-item"><i class="fa-solid fa-gamepad"></i><span>Games</span></div>
+  <div class="tab-item"><i class="fa-solid fa-mobile"></i><span>Apps</span></div>
+  <div class="tab-item"><i class="fa-solid fa-magnifying-glass"></i><span>Search</span></div>
+  <div class="tab-item"><i class="fa-solid fa-user"></i><span>Account</span></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <h3 id="modal-title">Installing…</h3>
+    <p id="modal-sub">Please wait</p>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress"></div>
+    </div>
+    <button class="cancel-btn" onclick="closeModalDirect()">Cancel</button>
+  </div>
+</div>
+
+<script>
+function showInstall(name){
+  document.getElementById("modal-title").innerText = "Installing " + name;
+  document.getElementById("modal-sub").innerText = "Preparing download...";
+  document.getElementById("modal").classList.add("show");
+
+  let p = 0;
+  const bar = document.getElementById("progress");
+
+  const i = setInterval(()=>{
+    p += Math.random()*8;
+    if(p >= 100){
+      p = 100;
+      clearInterval(i);
+      document.getElementById("modal-sub").innerText = "Installed (demo)";
+    }
+    bar.style.width = p + "%";
+  }, 80);
+}
+
+function closeModal(e){
+  if(e.target.id === "modal") closeModalDirect();
+}
+function closeModalDirect(){
+  document.getElementById("modal").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
