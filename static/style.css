@@ -6,6 +6,7 @@ body {
   margin-inline: auto;
 }
 
+/* NAV */
 .nav {
   background: white;
   padding: 16px;
@@ -24,20 +25,11 @@ h1 {
   border-radius: 10px;
   border: none;
   background: #e5e5ea;
-  outline: none;
 }
 
-.section {
+/* APPS */
+.apps {
   padding: 16px;
-}
-
-.section-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.apps-grid {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -52,8 +44,8 @@ h1 {
 }
 
 .app img {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 12px;
 }
 
@@ -97,7 +89,7 @@ h1 {
   background: white;
   width: 100%;
   padding: 20px;
-  border-radius: 16px 16px 0 0;
+  border-radius: 18px 18px 0 0;
 }
 
 .progress-bar {
@@ -119,4 +111,61 @@ h1 {
   padding: 10px;
   border: none;
   border-radius: 10px;
+}
+
+/* DETAIL PAGE */
+.detail-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  align-items: flex-end;
+}
+
+.detail-overlay.show {
+  display: flex;
+}
+
+.detail {
+  background: white;
+  width: 100%;
+  padding: 20px;
+  border-radius: 18px 18px 0 0;
+}
+
+.detail-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 18px;
+}
+
+#detail-desc {
+  font-size: 13px;
+  color: #555;
+  margin-top: 10px;
+}
+
+.screenshots {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.screenshots img {
+  width: 120px;
+  height: 220px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.detail-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #007aff;
+  color: white;
+  font-weight: 600;
 }
