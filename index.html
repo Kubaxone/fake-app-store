@@ -20,18 +20,37 @@
 
 <div class="section">
   <div class="section-title">Top Apps</div>
-  <div id="apps" class="apps-grid"></div>
+  <div id="apps" class="apps"></div>
 </div>
 
 <!-- INSTALL MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <h3 id="modal-title">Installing...</h3>
-    <p id="modal-sub">Please wait</p>
+    <p id="modal-sub">Preparing...</p>
     <div class="progress-bar">
       <div class="progress-fill" id="progress"></div>
     </div>
     <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- DETAIL PAGE -->
+<div class="detail-overlay" id="detail">
+  <div class="detail">
+
+    <img id="detail-icon" class="detail-icon">
+
+    <h2 id="detail-name"></h2>
+    <p id="detail-genre"></p>
+
+    <p id="detail-desc"></p>
+
+    <div class="screenshots" id="screenshots"></div>
+
+    <button class="detail-btn" id="detail-btn">GET</button>
+    <button class="cancel-btn" onclick="closeDetail()">Close</button>
+
   </div>
 </div>
 
