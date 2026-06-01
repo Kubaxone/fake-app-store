@@ -9,7 +9,9 @@ const defaultApps = [
   "minecraft",
   "tiktok",
   "instagram",
-  "youtube"
+  "youtube",
+  "subway surfers",
+  "viso"
 ];
 
 // Fetch apps from iTunes API
